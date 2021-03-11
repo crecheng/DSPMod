@@ -14,7 +14,7 @@ ____
 [详细](./AddBuild-1.2.0)
 
 ### 下载 download 
-[download](./AddBuild-1.2.0/AddBuild.dll) 
+[download](./raw/main/AddBuild-1.2.0/AddBuild.dll) 
 
 ____
 ## 更多种子-BiggerSeed
