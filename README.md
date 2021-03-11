@@ -10,7 +10,7 @@ if you know mod ,you can download .dll file
 ____
 ## 建筑叠加-AddBuild
 
-[详细](/tree/main/AddBuild-1.2.0)
+[详细](./AddBuild-1.2.0)
 
 ### 下载 download 
 [gitee](https://gitee.com/crecheng/DSPMod/blob/main/AddBuild-1.2.0/AddBuild.dll) 
