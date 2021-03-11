@@ -1,0 +1,9 @@
+{
+    "name": "CanNotShowItem",
+    "version_number": "1.0.0",
+    "website_url": "https://www.bilibili.com/video/BV1jh411k7xr",
+    "description": "Can Not Show entity----------可以控制是否显示实体，可以有效提高你帧率",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "name": "DSPHierarchicalDisplay",
+    "version_number": "1.0.2",
+    "website_url": "",
+    "description": "Able to completely hide a certain shell of the Dyson ball\n【戴森球分层显示】能够将戴森球某层完全隐藏",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}

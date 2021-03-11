@@ -1,0 +1,9 @@
+{
+    "name": "BiggerSeed",
+    "version_number": "1.0.0",
+    "website_url": "https://www.bilibili.com/video/BV1jh411k7xr",
+    "description": "seed max 2147483647(about 2 Billion)----------种子最大2147483647(约21亿)",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}

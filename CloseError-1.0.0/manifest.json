@@ -1,0 +1,9 @@
+{
+    "name": "CloseError",
+    "version_number": "1.0.0",
+    "website_url": "",
+    "description": "error tip can close\n允许关闭出错提示",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}

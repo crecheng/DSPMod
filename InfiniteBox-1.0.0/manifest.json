@@ -1,0 +1,9 @@
+{
+    "name": "InfiniteBox",
+    "version_number": "1.0.0",
+    "website_url": "",
+    "description": "set a way can make you have Infinite item in box\n  无限箱-通过设置箱子自动化使箱子内物品无限",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "name": "Tp",
+    "version_number": "1.4.0",
+    "website_url": "",
+    "description": "send you other star or planet\n星际传送",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}

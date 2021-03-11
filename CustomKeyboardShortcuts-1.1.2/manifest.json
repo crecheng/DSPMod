@@ -1,0 +1,9 @@
+{
+    "name": "CustomKeyboardShortcuts",
+    "version_number": "1.1.2",
+    "website_url": "",
+    "description": "can make you use number to take item in hand\n【自定义快捷栏】可以将物品标记在ui中，按数字键(或点击)就能使手上持有该物品",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}

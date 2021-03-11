@@ -1,0 +1,15 @@
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\obj\Debug\MultiplyMachineSpeed.csprojAssemblyReference.cache
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\obj\Debug\MultiplyMachineSpeed.csproj.CoreCompileInputs.cache
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\bin\Debug\MultiplyMachineSpeed.dll
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\bin\Debug\MultiplyMachineSpeed.pdb
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\bin\Debug\0Harmony20.dll
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\bin\Debug\Assembly-CSharp.dll
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\bin\Debug\BepInEx.dll
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\bin\Debug\UnityEngine.CoreModule.dll
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\bin\Debug\UnityEngine.dll
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\bin\Debug\UnityEngine.IMGUIModule.dll
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\bin\Debug\UnityEngine.TextRenderingModule.dll
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\bin\Debug\UnityEngine.SharedInternalsModule.dll
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\obj\Debug\MultiplyMachineSpeed.csproj.CopyComplete
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\obj\Debug\MultiplyMachineSpeed.dll
+D:\codeNet\projects\MultiplyMachineSpeed\MultiplyMachineSpeed\obj\Debug\MultiplyMachineSpeed.pdb

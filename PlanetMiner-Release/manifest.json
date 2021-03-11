@@ -1,0 +1,9 @@
+{
+    "name": "PlanetMiner",
+    "version_number": "2.0.2",
+    "website_url": "",
+    "description": "The station can mine the minerals of the entire planet\n【星球矿机】运输站能够挖取整个星球的矿物",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}

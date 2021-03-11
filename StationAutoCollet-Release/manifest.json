@@ -1,0 +1,9 @@
+{
+    "name": "StationAutoCollect",
+    "version_number": "1.0.1",
+    "website_url": "",
+    "description": "station auto collect mine in miner----------物流站自动收集-物流站自动收集矿机中的物品",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}

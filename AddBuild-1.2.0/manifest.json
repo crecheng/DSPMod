@@ -1,0 +1,9 @@
+{
+    "name": "AddBuild",
+    "version_number": "1.2.0",
+    "website_url": "",
+    "description": "you can use same item make you a factory more speed\n  建筑叠加-使用相同的建筑可以使你的工厂更快",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}

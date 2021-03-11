@@ -1,0 +1,9 @@
+{
+    "name": "MultiplyMachineSpeed",
+    "version_number": "1.3.6",
+    "website_url": "",
+    "description": "make you machine more fast but need more electricity\n【机器超频】使你的机器速度更快，但耗电也增加",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}
