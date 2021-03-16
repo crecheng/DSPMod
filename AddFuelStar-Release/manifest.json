@@ -1,0 +1,10 @@
+{
+    "name": "AddFuelStar",
+    "version_number": "1.0.0",
+    "website_url": "",
+    "description": "give star add fuel----------【给太阳加把火】给太阳加燃料",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5",
+        "crecheng-DSPModSave-1.0.2"
+    ]
+}

@@ -14,7 +14,7 @@ namespace crecheng.DSPModSave
 	[BepInPlugin("crecheng.DSPModSave", "DSPModSave", Version)]
 	public class DSPModSave : BaseUnityPlugin
 	{
-		const string Version = "1.0.0";
+		const string Version = "1.0.2";
 		const int version = 1;
 		static Dictionary<string, IModCanSave> AllModData;
 
@@ -106,6 +106,17 @@ namespace crecheng.DSPModSave
 				}
 			}
         }
+
+		[HarmonyPostfix]
+		[HarmonyPatch(typeof(UIGalaxySelect), "EnterGame")]
+		static void EnterGame()
+        {
+			Debug.Log("Enter New Game");
+			foreach (var d in AllModData)
+			{
+				d.Value.IntoOtherSave();
+			}
+		}
 
 		[HarmonyPostfix]
 		[HarmonyPatch(typeof(GameSave), "LoadCurrentGame")]

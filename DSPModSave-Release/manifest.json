@@ -1,6 +1,6 @@
 {
     "name": "DSPModSave",
-    "version_number": "1.0.0",
+    "version_number": "1.0.2",
     "website_url": "https://github.com/crecheng/DSPMod/tree/main/DSPModSave-Release",
     "description": "provide a mod save ---------【mod存档】提供一个原存档之外的mod存档",
     "dependencies": [

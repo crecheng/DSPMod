@@ -1,0 +1,9 @@
+{
+    "name": "GeothermalUsing",
+    "version_number": "1.0.0",
+    "website_url": "",
+    "description": "Use lava to generate electricity\n【熔岩利用】利用熔岩发电",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5"
+    ]
+}

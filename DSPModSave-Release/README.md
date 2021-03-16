@@ -3,8 +3,8 @@
 # mod存档
 
 源码：
-[Gitee](https://gitee.com/crecheng/DSPMod)
-[GitHub](https://github.com/crecheng/DSPMod)
+[Gitee](https://gitee.com/crecheng/DSPMod/tree/main/DSPModSave)
+[GitHub](https://github.com/crecheng/DSPMod/tree/main/DSPModSave)
 
 提供一个在原存档外的存储mod数据的mod存档
 
@@ -38,8 +38,8 @@ First, you need to apply the dll, and then using crecheng.DSPModSave;
 Then base the IModCanSave interface in your plugin
 
 sourse code：
-[Gitee](https://gitee.com/crecheng/DSPMod)
-[GitHub](https://github.com/crecheng/DSPMod)
+[Gitee](https://gitee.com/crecheng/DSPMod/tree/main/DSPModSave)
+[GitHub](https://github.com/crecheng/DSPMod/tree/main/DSPModSave)
 
 example:
 
