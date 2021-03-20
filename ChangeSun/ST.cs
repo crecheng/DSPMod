@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
+namespace ChangeSun
+{
     public static class ST
     {
         public static string Tip
@@ -21,31 +22,32 @@ using System.Text;
             }
         }
 
-    public static string 查找
-    {
-        get
+        public static string 查找
         {
-            if (Localization.language == Language.zhCN)
+            get
             {
-                return "查找";
-            }
-            else
-            {
-                return "Find";
+                if (Localization.language == Language.zhCN)
+                {
+                    return "查找";
+                }
+                else
+                {
+                    return "Find";
+                }
             }
         }
-    }
-    public static string 更换
-    {
-        get
+        public static string 更换
         {
-            if (Localization.language == Language.zhCN)
+            get
             {
-                return "更换";
-            }
-            else
-            {
-                return "Change";
+                if (Localization.language == Language.zhCN)
+                {
+                    return "更换";
+                }
+                else
+                {
+                    return "Change";
+                }
             }
         }
     }

@@ -13,7 +13,7 @@ namespace PlanetMiner
     [BepInPlugin("crecheng.PlanetMiner", "PlanetMiner", PlanetMiner.Version)]
     public class PlanetMiner :BaseUnityPlugin
     {
-        public const string Version = "2.0.2";
+        public const string Version = "2.0.3";
         public static bool isRun = false;
 		const int uesEnergy = 20000*1000;
 		const int waterSpeed = 100;
@@ -51,7 +51,7 @@ namespace PlanetMiner
 
 			if (frame % baseSpeed != 0)
 				return;
-			//Debug.Log(miningSpeedScale);
+
 			if (__instance.factorySystem.minerPool[0].seed == 0)
 			{
 				var rondom = new System.Random();
@@ -62,11 +62,6 @@ namespace PlanetMiner
 				seed = __instance.factorySystem.minerPool[0].seed;
 			}
 
-
-			if (!isRun)
-			{
-
-			}
 			var veinPool = __instance.veinPool;
 
 			Dictionary<int, List<int>> veins = new Dictionary<int, List<int>>();
@@ -84,6 +79,7 @@ namespace PlanetMiner
 			GameStatData statistics = GameMain.statistics;
 			FactoryProductionStat factoryProductionStat = statistics.production.factoryStatPool[__instance.index];
 			int[] productRegister = factoryProductionStat.productRegister;
+			var consumeRegister = factoryProductionStat.consumeRegister;
 			for (int i = 1; i < transport.stationCursor; i++)
 			{
 				var sc = transport.stationPool[i];
@@ -96,21 +92,32 @@ namespace PlanetMiner
 						{
                             if (veins.ContainsKey(da.itemId)||da.itemId == __instance.planet.waterItemId)
                             {
+								//当能量不足一半时
 								if (sc.energyMax / 2 > sc.energy)
 								{
+									//获取倒数第二个物品栏
 									var lastup = sc.storage[sc.storage.Length - 2];
+									//如果物品数量大于0
 									if (lastup.count > 0)
 									{
+										//获取物品的能量值
 										long en = LDB.items.Select(lastup.itemId).HeatValue;
+										//如果物品的能量大于0
 										if (en > 0)
 										{
+											//获取需要充电的能量
 											long needen = sc.energyMax - sc.energy;
+											//计算需要的数量
 											int needcount = (int)(needen / en);
+											//如果需要是数量大于有的数量
 											if (needcount > lastup.count)
 											{
+												//将需求数量改为当前数量
 												needcount = sc.storage[sc.storage.Length - 2].count;
 											}
+											//消耗物品
 											sc.storage[sc.storage.Length - 2].count -= needcount;
+											//充能
 											sc.energy += needcount * en;
 										}
 									}
@@ -118,7 +125,6 @@ namespace PlanetMiner
 							}
 							if (veins.ContainsKey(da.itemId))
 							{
-
 								if (sc.energy >= uesEnergy)
 								{
 									var vein = veins[da.itemId].First();

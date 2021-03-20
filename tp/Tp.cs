@@ -7,7 +7,7 @@ using System.Reflection;
 using UnityEngine;
 
 
-[BepInPlugin("crecheng.Tp", "Tp", "1.3.0.0")]
+[BepInPlugin("crecheng.Tp", "Tp", "2.0.0.0")]
 public class Tp:BaseUnityPlugin
 {
 	void Start()
@@ -15,33 +15,27 @@ public class Tp:BaseUnityPlugin
 		Harmony.CreateAndPatchAll(typeof(Tp), null);
 		Tp.style.fontSize = 15;
 		Tp.style.normal.textColor = new Color(255f, 255f, 255f);
+		tempRect = new Rect(Screen.width / 2, 0, 0, 0);
 	}
 
 	private void OnGUI()
 	{
 
-		ShowFun();
-		if (Input.GetKeyDown(KeyCode.O)&&isShow)
-        {
-			isEnterCount++;
-            if (isEnterCount > 5)
-            {
-				isEnter = true;
-				if (fingStarNameAll.Length > 0)
-				{
-					var s = fingStarNameAll.Split('-');
-					findStarName = s[0];
-					if (s.Length > 1)
-					{
-						int.TryParse(s[1], out planetIndex);
-						planetIndex -= 1;
-					}
-				}
-			}
-        }
+
+
 		if (isShow)
 		{
 			rect = GUI.Window(1935598196, rect, mywindowfunction, "星际传送");
+		}
+		else
+		{
+			if (GUI.Button(new Rect(rect.x, rect.y,  40, 30), "▼T▼"))
+			{
+				isShow = !isShow;
+				var temp = rect;
+				rect = tempRect;
+				tempRect = temp;
+			}
 		}
 	}
 
@@ -89,6 +83,7 @@ public class Tp:BaseUnityPlugin
 	static void GameEnd()
     {
 		resDate.Clear();
+		resPlanet.Clear();
     }
 
 	IEnumerator SendPlayer(object target)
@@ -117,34 +112,56 @@ public class Tp:BaseUnityPlugin
 		}
 	}
 
+	static Rect tempRect;
+
 	void mywindowfunction(int windowid)
 	{
-		GUI.Label(new Rect(10,20,300,300), Tp.tipInfo+"\n"+info, Tp.style);
+
+		if (GUI.Button(new Rect(0, 0, 20, 20), "X"))
+		{
+			isShow = !isShow;
+			var temp = rect;
+			rect = tempRect;
+			tempRect = temp;
+		}
+
+		GUI.Label(new Rect(10, 20, 300, 300), Tp.tipInfo + "\n" + info, Tp.style);
 		fingStarNameAll = GUI.TextField(new Rect(10, 40, 100, 20), Tp.fingStarNameAll, 20);
-		if(GUI.Button(new Rect(110, 40, 40, 20), "查找"))
-        {
+		if (GUI.Button(new Rect(110, 40, 40, 20), "查找"))
+		{
 			var galaxyData = GameMain.data.galaxy;
 			if (galaxyData != null)
-            {
+			{
 				findStar(galaxyData, fingStarNameAll);
-            }
-        }
+			}
+		}
 		int i = 0;
-		foreach(var d in resDate)
-        {
+		foreach (var d in resPlanet)
+		{
+			if (GUI.Button(new Rect(10 + i % 2 * 122, 100 + 20 * (i / 2), 120, 20), d.displayName))
+			{
+				isEnter = true;
+				target = d;
+			}
+			i++;
+		}
+		i /= 2;
+		foreach (var d in resDate)
+		{
 			GUI.Label(new Rect(10, 80 + 40 * i, 100, 20), d.Key);
 			int j = 0;
-			foreach(var p in d.Value.planets)
-            {
+			foreach (var p in d.Value.planets)
+			{
 				if (GUI.Button(new Rect(10 + j * 22, 100 + 40 * i, 20, 20), "" + (j + 1)))
 				{
 					isEnter = true;
 					target = p;
 				}
 				j++;
-            }
+			}
 			i++;
 		}
+
 		GUI.DragWindow(new Rect(0, 0, 10000, 10000));
 	}
 
@@ -152,49 +169,41 @@ public class Tp:BaseUnityPlugin
     {
 		Debug.Log("findStar");
 		resDate.Clear();
+		resPlanet.Clear();
 		foreach(var d in g.stars)
         {
-            if (d.name.IndexOf(s, StringComparison.InvariantCultureIgnoreCase) > -1)
+            if (d.name.IndexOf(s, StringComparison.InvariantCultureIgnoreCase) > -1||d.displayName.IndexOf(s, StringComparison.InvariantCultureIgnoreCase)>-1)
             {
-				resDate.Add(d.name, d);
+				resDate.Add(d.displayName, d);
+            }
+            else
+            {
+                for (int i = 0; i < d.planetCount; i++)
+                {
+					if(d.planets[i].displayName.IndexOf(s, StringComparison.InvariantCultureIgnoreCase) > -1)
+                    {
+						resPlanet.Add(d.planets[i]);
+                    }
+                }
             }
         }
-		rect.height = 120 + resDate.Count * 40;
+		rect.height = 120 + resDate.Count * 40+resPlanet.Count/2*20;
     }
 
-	private static void ShowFun()
-    {
-		if (Input.GetKeyDown(KeyCode.I))
-		{
-			isShowCount++;
-			if (isShowCount > 5)
-			{
-				isShow = !isShow;
-				isShowCount = 0;
-			}
-		}
-	}
-
 	private static Dictionary<String, StarData> resDate = new Dictionary<string, StarData>();
+	private static List<PlanetData> resPlanet = new List<PlanetData>();
 
 	private static PlanetData target = null;
 	private static bool isEnter=false;
-	private static int isEnterCount = 0;
-	private static int planetIndex=0;
 	private static string fingStarNameAll = string.Empty;
 
 	private static string info = "";
 
-	private static string tipInfo = "输入要传送的星系名字(可以部分)\n";
+	private static string tipInfo = "输入要传送的星球的名字(可以部分)\n";
 
 
-	//private static StringBuilder debugInfo = new StringBuilder();
+	private static bool isShow = false;
 
-	private static int errorCount = 0;
-
-	private static bool isShow = true;
-
-	private static int isShowCount = 0;
 
 	private static string findStarName = string.Empty;
 

@@ -18,7 +18,7 @@ namespace ChangeSun
     public class ChangeSun:BaseUnityPlugin,IModCanSave
     {
 
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
         System.Random random = new System.Random();
         static ChangeSun instance = null;
         static bool isRun = false;
@@ -49,6 +49,7 @@ namespace ChangeSun
             //暂存原始星系数据
             var oldstar = star;
             int seed = random.Next();
+
             if (data.ContainsKey(index))
             {
                 data[index].seed = seed;
@@ -71,7 +72,38 @@ namespace ChangeSun
                 SwapStar(oldstar, stars[index]);
                 selectData = stars[index];
             }
+            if (oldstar == GameMain.localStar)
+            {
+                Traverse.Create(GameMain.data).Field("<localStar>k__BackingField").SetValue(stars[index]);
+            }
             SwapFinally();
+
+        }
+
+        void RadomSun(StarData[] stars, int index, EStarType type, int seed)
+        {
+            var star = stars[index];
+            //暂存原始星系数据
+            var oldstar = star;
+            if (seed == -1)
+                seed = random.Next();
+            if (data.ContainsKey(index))
+            {
+                data[index].seed = seed;
+                //生成新的星系
+                stars[index] = StarGen.CreateStar(GameMain.galaxy, oldstar.position, index + 1, seed, type, ESpectrType.O);
+                //还给一些原始数据
+                SwapStar(oldstar, stars[index]);
+                SwapFinally();
+            }
+            else
+            {
+                data.Add(index, new SData(index, seed, type, ESpectrType.O));
+            }
+            if (oldstar == GameMain.localStar)
+            {
+                Traverse.Create(GameMain.data).Field("<localStar>k__BackingField").SetValue(stars[index]);
+            }
 
         }
 
@@ -159,28 +191,7 @@ namespace ChangeSun
         static int type1;
         static int type2;
 
-        void RadomSun(StarData[] stars, int index, EStarType type, int seed )
-        {
-            var star = stars[index];
-            //暂存原始星系数据
-            var oldstar = star;
-            if (seed == -1)
-                seed = random.Next();
-            if (data.ContainsKey(index))
-            {
-                data[index].seed = seed;
-                //生成新的星系
-                stars[index] = StarGen.CreateStar(GameMain.galaxy, oldstar.position, index + 1, seed, type, ESpectrType.O);
-                //还给一些原始数据
-                SwapStar(oldstar, stars[index]);
-                SwapFinally();
-            }
-            else
-            {
-                data.Add(index, new SData(index, seed, type, ESpectrType.O));
-            }
 
-        }
 
         [HarmonyPrefix]
         [HarmonyPatch(typeof(GameData), "GameTick")]
@@ -215,6 +226,7 @@ namespace ChangeSun
                 //更新ui数据
                 var StarUI = UIRoot.instance.uiGame.starmap.starUIs[i];
                 StarUI._Free();
+
                 //设置为新数据
                 StarUI._Init(galaxy.stars[i]);
 

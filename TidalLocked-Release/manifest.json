@@ -1,0 +1,10 @@
+{
+    "name": "TidalLocked",
+    "version_number": "1.0.0",
+    "website_url": "",
+    "description": "can make local planet TidalLocked----------【潮汐锁定】Ctrl + L 使当前星球潮汐锁定",
+    "dependencies": [
+        "xiaoye97-BepInEx-5.4.5",
+        "crecheng-DSPModSave-1.0.2"
+    ]
+}
