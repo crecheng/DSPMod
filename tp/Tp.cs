@@ -7,7 +7,7 @@ using System.Reflection;
 using UnityEngine;
 
 
-[BepInPlugin("crecheng.Tp", "Tp", "2.0.0.0")]
+[BepInPlugin("crecheng.Tp", "Tp", "2.1.0")]
 public class Tp:BaseUnityPlugin
 {
 	void Start()
@@ -15,7 +15,8 @@ public class Tp:BaseUnityPlugin
 		Harmony.CreateAndPatchAll(typeof(Tp), null);
 		Tp.style.fontSize = 15;
 		Tp.style.normal.textColor = new Color(255f, 255f, 255f);
-		tempRect = new Rect(Screen.width / 2, 0, 0, 0);
+		tempRect = new Rect(330f, 30f, 250f, 200f);
+		rect = new Rect(Screen.width / 2, 0, 0, 0);
 	}
 
 	private void OnGUI()
@@ -207,7 +208,7 @@ public class Tp:BaseUnityPlugin
 
 	private static string findStarName = string.Empty;
 
-	private static Rect rect = new Rect(330f, 30f, 250f, 200f);
+	private static Rect rect ;
 
 	private static GUIStyle style = new GUIStyle();
 }

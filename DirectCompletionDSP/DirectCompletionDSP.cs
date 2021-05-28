@@ -14,7 +14,7 @@ namespace DirectCompletionDSP
     [BepInPlugin("crecheng.DirectCompletionDSP", "DirectCompletionDSP", DirectCompletionDSP.Version)]
     public class DirectCompletionDSP:BaseUnityPlugin
     {
-        public const string Version = "1.0.0";
+        public const string Version = "1.1.0";
         static bool isShow = false;
         static bool addr = false;
         static bool adds = false;
@@ -30,7 +30,7 @@ namespace DirectCompletionDSP
                 rect = GUI.Window(1935598225, rect, mywindowfunction, "DC-DSP");
             }
         }
-        static Rect rect = new Rect(300, 300, 100, 70);
+        static Rect rect = new Rect(300, 300, 100, 100);
 
 
         void mywindowfunction(int windowid)
@@ -43,18 +43,34 @@ namespace DirectCompletionDSP
             {
                 adds = !adds;
             }
+            if (GUI.Button(new Rect(10, 70, 80, 20), "移除太阳帆"))
+            {
+                if (GameMain.localPlanet != null)
+                {
+                    var dsp = GameMain.localPlanet.factory.dysonSphere;
+
+                    if (dsp != null)
+                    {
+                        dsp.swarm.Clear();
+                    }
+                }
+            }
             if (addr || adds)
             {
-                var dsp = GameMain.localPlanet.factory.dysonSphere;
-                if (dsp != null)
+                if (GameMain.localPlanet != null)
                 {
-                    if (addr)
-                        StartCoroutine(AddSp(dsp));
-                }
-                if (dsp != null)
-                {
-                    if (adds)
-                        StartCoroutine(AddCp(dsp));
+                    var dsp = GameMain.localPlanet.factory.dysonSphere;
+
+                    if (dsp != null)
+                    {
+                        if (addr)
+                            StartCoroutine(AddSp(dsp));
+                    }
+                    if (dsp != null)
+                    {
+                        if (adds)
+                            StartCoroutine(AddCp(dsp));
+                    }
                 }
             }
 
@@ -83,6 +99,16 @@ namespace DirectCompletionDSP
                     }
                 }
             }
+        }
+
+        IEnumerator RemoveSail(DysonSphere dsp)
+        {
+            yield return new WaitForEndOfFrame();
+            for (int i = 1; i < dsp.swarm.sailCapacity; i++)
+            {
+                dsp.swarm.RemoveSolarSail(i);
+            }
+
         }
 
         IEnumerator AddCp(DysonSphere dsp)

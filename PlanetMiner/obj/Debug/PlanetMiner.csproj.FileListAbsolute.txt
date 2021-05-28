@@ -123,3 +123,14 @@ D:\codeNet\projects\DSPMod\PlanetMiner\obj\Debug\PlanetMiner.csproj.CoreCompileI
 D:\codeNet\projects\DSPMod\PlanetMiner\obj\Debug\PlanetMiner.csproj.CopyComplete
 D:\codeNet\projects\DSPMod\PlanetMiner\obj\Debug\PlanetMiner.dll
 D:\codeNet\projects\DSPMod\PlanetMiner\obj\Debug\PlanetMiner.pdb
+D:\codeNet\projects\DSPMod\PlanetMiner\bin\Debug\netstandard.dll
+D:\codeNet\projects\DSPMod\PlanetMiner\bin\Debug\System.Diagnostics.StackTrace.dll
+D:\codeNet\projects\DSPMod\PlanetMiner\bin\Debug\System.Globalization.Extensions.dll
+D:\codeNet\projects\DSPMod\PlanetMiner\bin\Debug\System.IO.Compression.dll
+D:\codeNet\projects\DSPMod\PlanetMiner\bin\Debug\System.IO.Compression.FileSystem.dll
+D:\codeNet\projects\DSPMod\PlanetMiner\bin\Debug\System.Net.Http.dll
+D:\codeNet\projects\DSPMod\PlanetMiner\bin\Debug\System.Runtime.Serialization.dll
+D:\codeNet\projects\DSPMod\PlanetMiner\bin\Debug\System.Runtime.Serialization.Xml.dll
+D:\codeNet\projects\DSPMod\PlanetMiner\bin\Debug\System.Xml.XPath.XDocument.dll
+D:\codeNet\projects\DSPMod\PlanetMiner\bin\Debug\Mono.Security.dll
+D:\codeNet\projects\DSPMod\PlanetMiner\bin\Debug\System.ServiceModel.Internals.dll
